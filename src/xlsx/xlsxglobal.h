@@ -22,61 +22,22 @@
 ** WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 **
 ****************************************************************************/
-#ifndef XLSXWORKBOOK_H
-#define XLSXWORKBOOK_H
-
-#include <QObject>
-#include <QList>
-class QIODevice;
+#ifndef XLSXGLOBAL_H
+#define XLSXGLOBAL_H
+#include <QtGlobal>
 
 namespace QXlsx {
 
-class Worksheet;
-class Format;
-class SharedStrings;
-class Styles;
-class Package;
+#if !defined(QT_STATIC) && !defined(XLSX_NO_LIB)
+#  if defined(QT_BUILD_XLSX_LIB)
+#    define Q_XLSX_EXPORT Q_DECL_EXPORT
+#  else
+#    define Q_XLSX_EXPORT Q_DECL_IMPORT
+#  endif
+#else
+#  define Q_XLSX_EXPORT
+#endif
 
-class Workbook : public QObject
-{
-    Q_OBJECT
-public:
-    Workbook(QObject *parent=0);
-    ~Workbook();
+}
 
-    Worksheet *addWorksheet(const QString &name = QString());
-    Format *addFormat();
-//    void addChart();
-    void defineName(const QString &name, const QString &formula);
-    void setStringsToNumbersEnabled(bool enable=true);
-
-    void save(const QString &name);
-
-private:
-    friend class Package;
-    friend class Worksheet;
-
-    QList<Worksheet *> worksheets() const;
-    SharedStrings *sharedStrings();
-    Styles *styles();
-    bool isStringsToNumbersEnabled() const;
-    void saveToXmlFile(QIODevice *device);
-
-    SharedStrings *m_sharedStrings;
-    QList<Worksheet *> m_worksheets;
-    Styles *m_styles;
-    bool m_strings_to_numbers_enabled;
-
-    int m_x_window;
-    int m_y_window;
-    int m_window_width;
-    int m_window_height;
-
-    int m_activesheet;
-    int m_firstsheet;
-    int m_table_count;
-};
-
-} //QXlsx
-
-#endif // XLSXWORKBOOK_H
+#endif // XLSXGLOBAL_H
