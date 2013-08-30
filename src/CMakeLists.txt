@@ -4,40 +4,38 @@ message("Qt5Gui_PRIVATE_INCLUDE_DIRS = ${Qt5Gui_PRIVATE_INCLUDE_DIRS}")
 include_directories(${Qt5Gui_PRIVATE_INCLUDE_DIRS})
 
 set(${CURR_PROJECT}_CPP
-  qxlsxwriter.cpp
-  xlsxcontenttypes.cpp
-  xlsxdocprops.cpp
-  xlsxformat.cpp
-  xlsxpackage.cpp
-  xlsxrelationships.cpp
-  xlsxsharedstrings.cpp
-  xlsxstyles.cpp
-  xlsxtheme.cpp
-  xlsxutility.cpp
-  xlsxworkbook.cpp
-  xlsxworksheet.cpp
-  xmlstreamwriter.cpp
-  zipwriter.cpp
+  xlsx/xlsxcontenttypes.cpp
+  xlsx/xlsxdocprops.cpp
+  xlsx/xlsxformat.cpp
+  xlsx/xlsxpackage.cpp
+  xlsx/xlsxrelationships.cpp
+  xlsx/xlsxsharedstrings.cpp
+  xlsx/xlsxstyles.cpp
+  xlsx/xlsxtheme.cpp
+  xlsx/xlsxutility.cpp
+  xlsx/xlsxworkbook.cpp
+  xlsx/xlsxworksheet.cpp
+  xlsx/xmlstreamwriter.cpp
+  xlsx/zipwriter.cpp
   )
 
 set(${CURR_PROJECT}_H
-  xlsxcontenttypes_p.h
-  xlsxformat.h
-  xlsxpackage_p.h
-  xlsxstyles_p.h
-  xlsxtheme_p.h
-  xlsxutility_p.h
-  xmlstreamwriter_p.h
+  xlsx/xlsxcontenttypes_p.h
+  xlsx/xlsxformat.h
+  xlsx/xlsxpackage_p.h
+  xlsx/xlsxstyles_p.h
+  xlsx/xlsxtheme_p.h
+  xlsx/xlsxutility_p.h
+  xlsx/xmlstreamwriter_p.h
   )
 
 set(${CURR_PROJECT}_MOC_H
-  qxlsxwriter.h
-  xlsxdocprops_p.h
-  xlsxrelationships_p.h
-  xlsxsharedstrings_p.h
-  xlsxworkbook.h
-  xlsxworksheet.h
-  zipwriter_p.h
+  xlsx/xlsxdocprops_p.h
+  xlsx/xlsxrelationships_p.h
+  xlsx/xlsxsharedstrings_p.h
+  xlsx/xlsxworkbook.h
+  xlsx/xlsxworksheet.h
+  xlsx/zipwriter_p.h
   )
 
 qt5_wrap_cpp(${CURR_PROJECT}_MOC_CPP ${${CURR_PROJECT}_MOC_H})

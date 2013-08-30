@@ -1,2 +1,2 @@
-add_subdirectory(hello)
-add_subdirectory(style)
+add_subdirectory(xlsx/hello)
+add_subdirectory(xlsx/style)

@@ -27,10 +27,12 @@ find_qt_5_1(ROOT ${Qt5_ROOT}
 add_definitions(
   -DUNICODE
   -D_UNICODE
+  # for static linking
+  -DXLSX_NO_LIB
   )
 
 include_directories(
-  src
+  src/xlsx
   )
 
 add_subdirectory(src)
